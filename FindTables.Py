@@ -2,7 +2,29 @@ import os
 import zipfile
 import pandas as pd
 import logging
-from datetime import datetime
+
+
+def setup_logging():
+    """
+    Sets up the logging configuration.
+    """
+    logging.basicConfig(filename='script_log.log', level=logging.INFO,
+                        format='%(asctime)s:%(levelname)s:%(message)s')
+
+def log_message(message, level="info"):
+    """
+    Logs a message at the specified level.
+
+    Parameters:
+    message (str): Message to log.
+    level (str): Logging level ('info', 'warning', or 'error').
+    """
+    if level == "info":
+        logging.info(message)
+    elif level == "warning":
+        logging.warning(message)
+    elif level == "error":
+        logging.error(message)
 
 def extract_files(source_directory, extensions):
     """
@@ -54,40 +76,15 @@ def process_egp_files(source_directory, destination_directory):
             if file.upper().endswith(".EGP"):
                 path = os.path.join(root, file)
                 with zipfile.ZipFile(path) as zf:
-                    zf.extractall(destination_directory)
-
-
-def setup_logging():
-    """
-    Sets up the logging configuration.
-    """
-    logging.basicConfig(filename='script_log.log', level=logging.INFO,
-                        format='%(asctime)s:%(levelname)s:%(message)s')
-
-def log_message(message, level="info"):
-    """
-    Logs a message at the specified level.
-
-    Parameters:
-    message (str): Message to log.
-    level (str): Logging level ('info', 'warning', or 'error').
-    """
-    if level == "info":
-        logging.info(message)
-    elif level == "warning":
-        logging.warning(message)
-    elif level == "error":
-        logging.error(message)
-
-# Existing functions (extract_files, extract_words_from_file, process_egp_files) go here
-
+                    zf.extractall(destination_directory)    
+                       
 # Main execution
 if __name__ == "__main__":
     setup_logging()
     log_message("Script execution started.")
 
-    source_dir = "Path"
-    destination_dir = "Path"
+    source_dir = "C:/Users/Ehsan/Desktop/python-oo-practice"
+    destination_dir = "C:/Users/Ehsan/Desktop/python-oo-practice"
     extensions = [".SAS", ".SQL", ".EGP"]
     match_words = ["Matchwords", "Other words"]
 
