@@ -83,8 +83,8 @@ if __name__ == "__main__":
     setup_logging()
     log_message("Script execution started.")
 
-    source_dir = "C:/Users/Ehsan/Desktop/python-oo-practice"
-    destination_dir = "C:/Users/Ehsan/Desktop/python-oo-practice"
+    source_dir = "Path"
+    destination_dir = "Path"
     extensions = [".SAS", ".SQL", ".EGP"]
     match_words = ["Matchwords", "Other words"]
 
