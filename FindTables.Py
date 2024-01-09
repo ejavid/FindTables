@@ -1,6 +1,8 @@
 import os
 import zipfile
 import pandas as pd
+import logging
+from datetime import datetime
 
 def extract_files(source_directory, extensions):
     """
@@ -54,11 +56,6 @@ def process_egp_files(source_directory, destination_directory):
                 with zipfile.ZipFile(path) as zf:
                     zf.extractall(destination_directory)
 
-import os
-import zipfile
-import pandas as pd
-import logging
-from datetime import datetime
 
 def setup_logging():
     """
